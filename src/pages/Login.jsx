@@ -1,15 +1,37 @@
 import React from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
-import { Link } from 'react-router-dom'
+import { Button, Form, Input,message } from 'antd';
+import { Link,useNavigate } from 'react-router-dom'
 import './less/Login.less'
 import logoImg from '../assets/logo.png'
+import {LoginApi} from '../request/api'
 
 
 export default function Login() {
+  const navigate = useNavigate()
+
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    LoginApi(values)
+    .then(resp=>{
+      if(resp.code===200){
+        message.success('登陆成功')
+        //设置token
+        localStorage.setItem("token",resp.data['token'])
+        localStorage.setItem("username",values.username)
+        setTimeout(() => {
+          navigate('/')
+        }, 2000);
+
+      }else{
+        message.error(resp.message)
+      }
+    })
+    .catch(err=>{
+      console.log(err);
+      message.error('网络出错...')
+    })
   };
+
   return (
     <div className="login">
       <div className='login_box'>
