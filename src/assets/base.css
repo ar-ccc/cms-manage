@@ -1,0 +1,7 @@
+@import '~antd/dist/antd.css';
+
+body{
+    font-size: 15px;
+    color: green;
+    font-family: '微软雅黑';
+}
