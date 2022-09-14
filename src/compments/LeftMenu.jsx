@@ -1,7 +1,7 @@
-import { SnippetsOutlined,EditOutlined,FormOutlined } from '@ant-design/icons';
+import { SnippetsOutlined, EditOutlined, FormOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import React from 'react';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function LeftMenu() {
@@ -17,12 +17,10 @@ export default function LeftMenu() {
             type,
         };
     }
-
-
     const items = [
         getItem('文章', 'list', <SnippetsOutlined />),
-        getItem('编辑','edit',<EditOutlined />),
-        getItem('修改资料','means',<FormOutlined />)
+        getItem('编辑', 'edit', <EditOutlined />),
+        getItem('修改资料', 'means', <FormOutlined />)
     ];
     const onClick = (e) => {
         console.log('click ', e);
@@ -31,14 +29,18 @@ export default function LeftMenu() {
 
 
     return (
-        <Menu
-            theme='dark'
-            onClick={onClick}
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            mode="inline"
-            items={items}
-        />
+        <>
+            <div className='menu'>
+                <Menu
+                    theme='dark'
+                    onClick={onClick}
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    mode="inline"
+                    items={items}
+                />
+            </div>
+        </>
     )
 }
 

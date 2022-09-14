@@ -8,9 +8,39 @@ body{
     font-family: '微软雅黑';
     background: @bgcolor;
 }
+// div{
+//     border: green solid;
+// }
 
 .app{
     height: 100vh;
+    // width: 100vh;
+    display: flex;
+    flex-direction: column;
+    .header_box{
+        flex:1
+    }
+    .main_box{
+        flex: 10;
+    }
+    .footer_box{
+        flex: 1;
+    }
+    
+}
+.main_box{
+    display: flex;
+    .menu{
+        flex: 3;
+    }
+    .main{
+        flex: 21;
+    }
+}
+.menu{
+    display: flex;
+    color: #FFF;
+    height: 100%;
 }
 
 header{
@@ -21,14 +51,17 @@ header{
     justify-content: space-between;
     margin: 0;
     align-items: center;
-    img{
-        height: 50px;
-    }
 }
 footer{
-    height: 70px;
+    // height: 70px;
     background: rgb(4, 4, 23);
     text-align: center;
-    line-height: 70px;
+    line-height: 60px;
     color: rgb(255, 255, 255);
+}
+.main{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    height: calc(100vh-160px);
 }
