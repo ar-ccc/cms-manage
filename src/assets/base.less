@@ -1,0 +1,71 @@
+@import '~antd/dist/antd.css';
+
+@bgcolor:#efefef;
+
+body{
+    font-size: 15px;
+    color: rgb(18, 9, 18);
+    font-family: '微软雅黑';
+    background: @bgcolor;
+}
+// div{
+//     border: green solid;
+// }
+
+.app{
+    height: 100vh;
+    // width: 100vh;
+    display: flex;
+    flex-direction: column;
+    .header_box{
+        flex:1
+    }
+    .main_box{
+        flex: 10;
+    }
+    .footer_box{
+        flex: 1;
+    }
+    
+}
+.main_box{
+    display: flex;
+    .menu{
+        flex: 3;
+    }
+    .main{
+        flex: 21;
+    }
+}
+.menu{
+    display: flex;
+    color: #FFF; 
+    height: 100%;
+}
+.main{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    .main_content{
+        height: calc(100vh - 180px);
+        overflow: auto;
+    }
+}
+
+
+header{
+    height: 60px;
+    background: #fff;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    align-items: center;
+}
+footer{
+    // height: 70px;
+    background: rgb(4, 4, 23);
+    text-align: center;
+    line-height: 60px;
+    color: rgb(255, 255, 255);
+}
