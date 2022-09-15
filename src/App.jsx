@@ -1,13 +1,26 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Outlet,useNavigate } from 'react-router-dom'
 import { Layout } from 'antd'
 import LeftMenu from './compments/LeftMenu'
-
+import { IsLoginApi } from './request/api'
 import Header from './compments/Header'
 
 const { Sider } = Layout;
 
 export default function App() {
+
+    const navigate = useNavigate()
+
+    //设置路由拦截
+    useEffect(()=>{
+        IsLoginApi()
+        .then((resp)=>{
+            if(resp.code!==200){
+                navigate('/login')
+            }
+        })
+    },[])
+
     return (
         <>
             <Layout>
@@ -24,9 +37,10 @@ export default function App() {
                             </div>
 
                             <div className="main">
-                                {/* <Content> */}
+                                <div className="main_content">
                                     <Outlet />
-                                {/* </Content> */}
+                                </div>
+
                             </div>
                         </Layout>
 

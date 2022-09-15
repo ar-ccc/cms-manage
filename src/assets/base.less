@@ -39,9 +39,19 @@ body{
 }
 .menu{
     display: flex;
-    color: #FFF;
+    color: #FFF; 
     height: 100%;
 }
+.main{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    .main_content{
+        height: calc(100vh - 180px);
+        overflow: auto;
+    }
+}
+
 
 header{
     height: 60px;
@@ -58,10 +68,4 @@ footer{
     text-align: center;
     line-height: 60px;
     color: rgb(255, 255, 255);
-}
-.main{
-    display: flex;
-    padding: 20px;
-    flex-direction: column;
-    height: calc(100vh-160px);
 }

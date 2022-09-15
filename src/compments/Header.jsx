@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Header() {
 
-    const name = localStorage.getItem('username')
+    const name = sessionStorage.getItem('username')
     const navigate = useNavigate()
     const logout = () => {
         message.success('退出登录')

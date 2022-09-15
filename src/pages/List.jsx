@@ -13,7 +13,7 @@ export default function List() {
   const [pagination, setPaginnation] = useState({
     hideOnSinglePage: true,
     onChange: (page, pageSize) => {
-      console.log(page,pageSize);
+      // console.log(page,pageSize);
       getArticleList(page, pageSize)
     },
 
@@ -23,7 +23,7 @@ export default function List() {
   //页面加载后
   useEffect(() => {
     //默认第一页，10条数据
-    getArticleList(1,10)
+    getArticleList(1,6)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -32,7 +32,7 @@ export default function List() {
     let arr = []
     ArticleApi({page,pageSize})
       .then(resp => {
-        console.log(resp)
+        // console.log(resp)
         
         
         if (resp.code === 200) {
@@ -52,7 +52,7 @@ export default function List() {
           )
           setData(arr)
         } else {
-          message.error(resp.message)
+          // navigate('/login')
         }
 
       })

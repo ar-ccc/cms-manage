@@ -23,7 +23,7 @@ export default function LeftMenu() {
         getItem('修改资料', 'means', <FormOutlined />)
     ];
     const onClick = (e) => {
-        console.log('click ', e);
+        // console.log('click ', e);
         navigate(e.key)
     };
 

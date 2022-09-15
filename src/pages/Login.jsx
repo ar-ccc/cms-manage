@@ -16,18 +16,18 @@ export default function Login() {
       if(resp.code===200){
         message.success('登陆成功')
         //设置token
-        localStorage.setItem("token",resp.data['token'])
-        localStorage.setItem("username",values.username)
+        sessionStorage.setItem("token",resp.data['token'])
+        sessionStorage.setItem("username",values.username)
         setTimeout(() => {
-          navigate('/')
+          navigate('/list')
         }, 2000);
 
       }else{
-        message.error(resp.message)
+        
       }
     })
     .catch(err=>{
-      console.log(err);
+      // console.log(err);
       message.error('网络出错...')
     })
   };
