@@ -13,3 +13,5 @@ export const ArticleDetailAddApi = (data) => request.post('/articleDetial/add',d
 export const ArticleDetailDeleteApi = (id) =>  request.delete('/articleDetial/delete/'+id)
 //验证是否登录
 export const IsLoginApi =()=> request.get('/user/isLogin')
+//退出登录
+export const LogoutApi = () => request.get('/user/logout')

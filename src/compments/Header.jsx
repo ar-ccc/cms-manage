@@ -3,6 +3,8 @@ import logoImg from '../assets/logo.png';
 import { CaretDownOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, Space, message } from 'antd';
 import { useNavigate } from 'react-router-dom'
+import { LogoutApi } from '../request/api';
+import { removeToken } from '../shared/token';
 
 export default function Header() {
 
@@ -10,9 +12,11 @@ export default function Header() {
     const navigate = useNavigate()
     const logout = () => {
         message.success('退出登录')
+        LogoutApi()
         setTimeout(() => {
             navigate('/login')
         }, 1500);
+        removeToken()
     }
     const edit = () => {
         navigate('means')

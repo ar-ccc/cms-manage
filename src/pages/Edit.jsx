@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 import { ArticleDetailApi, ArticleDetailAddApi } from '../request/api'
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { Editor, Toolbar } from '@wangeditor/editor-for-react'
-import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
+// import { IDomEditor, IEditorConfig, IToolbarConfig } from '@wangeditor/editor'
 
 export default function Edit() {
   const [params] = useSearchParams();
@@ -31,6 +31,7 @@ export default function Edit() {
           console.log('出现异常了', err);
         })
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   //销毁
   useEffect(() => {

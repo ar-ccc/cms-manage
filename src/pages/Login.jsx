@@ -1,14 +1,26 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input,message } from 'antd';
 import { Link,useNavigate } from 'react-router-dom'
 import './less/Login.less'
 import logoImg from '../assets/logo.png'
-import {LoginApi} from '../request/api'
+import {IsLoginApi, LoginApi} from '../request/api'
+import { setToken } from '../shared/token';
 
 
 export default function Login() {
   const navigate = useNavigate()
+
+  // 如果已经登录，跳转到list页面
+  useEffect(()=>{
+    IsLoginApi()
+    .then((resp)=>{
+        if(resp.code===200){
+            navigate('/list')
+        }
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const onFinish = (values) => {
     LoginApi(values)
@@ -16,18 +28,18 @@ export default function Login() {
       if(resp.code===200){
         message.success('登陆成功')
         //设置token
-        sessionStorage.setItem("token",resp.data['token'])
+        setToken(resp.data['token'])
         sessionStorage.setItem("username",values.username)
         setTimeout(() => {
           navigate('/list')
         }, 2000);
-
       }else{
-        
+        console.log(resp);
+        message.error(resp.message)
       }
     })
     .catch(err=>{
-      // console.log(err);
+      console.log(err);
       message.error('网络出错...')
     })
   };
